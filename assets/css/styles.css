@@ -22,4 +22,79 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 35rem;
+  height: 15rem;
+  border-bottom: .5rem solid;
+  animation: animateLine 5s linear infinite;
+}
+
+.hexagon {
+  position: absolute;
+  left: 0;
+  bottom: 2.3rem;
+  width: 10rem;
+  height: 6rem;
+  background: var(--secondaryColor);
+  animation: animate 5s linear infinite;
+}
+
+.hexagon::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 10rem;
+  height: 6rem;
+  background: var(--secondaryColor);
+  transform: rotate(60deg);
+}
+
+.hexagon::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 10rem;
+  height: 6rem;
+  background: var(--secondaryColor);
+  transform: rotate(-60deg);
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+    left: 0;
+  }
+
+  50% {
+    transform: rotate(360deg);
+    left: calc(100% - 10rem);
+  }
+
+  100% {
+    transform: rotate(0deg);
+    left: 0;
+  }
+}
+
+@keyframes animateLine {
+  0% {
+    transform: translate(-50%, -50%) rotate(30deg);
+  }
+
+  25% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) rotate(-30deg);
+  }
+
+  75% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(30deg);
+  }
 }
